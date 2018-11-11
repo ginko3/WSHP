@@ -21,6 +21,9 @@ from deeplab_resnet import DeepLabResNetModel, ImageReader, decode_labels, prepa
 
 import pdb
 
+import logging
+logging.getLogger('tensorflow').disabled = True
+
 IMG_MEAN = np.array((104.00698793,116.66876762,122.67891434), dtype=np.float32)
 
 NUM_CLASSES = 7
@@ -123,7 +126,6 @@ def main():
         im = Image.fromarray(msk[0])
         img_o = Image.open(jpg_path)
         jpg_path = Path(str(jpg_path)).stem
-        print(type(jpg_path), jpg_path)
         img = np.array(im)*0.9 + np.array(img_o)*0.7
         img[img>255] = 255
         img = Image.fromarray(np.uint8(img))
