@@ -1,1 +1,9 @@
+# Compiled python
 *.pyc
+
+# Model
+model/
+
+# Images
+images/
+datalist.txt
